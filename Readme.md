@@ -9,7 +9,7 @@ Tutorial : 1
 
 Practical : 3
 
-#### Grading Scheme
+### Grading Scheme
 
 **Marks Distribution**
 
@@ -18,6 +18,7 @@ Practical : 3
 - Quiz 2: 2.5 (theory) + 5 (lab)
 - Final Exam: 10 (theory) + 25 (lab)
 - Assignments: 35
+
 _Total: 100 marks_
 
 **Grading Policy**
