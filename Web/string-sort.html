@@ -1,0 +1,96 @@
+<style>.hljs-builtin-name{color: #97C8F7;}.hljs-title{color:#71C05D;}.hljs-link{color:#4D913C;}.hljs-built_in{color: #97C8F7;}.hljs-symbol{color:#E6DB74;}.hljs-meta{color:#149b93;}.hljs-type{color:#66D9EF;}.hljs-strong{font-weight:bold;}.hljs-variable{color:#4D913C;}.hljs-params{color:#66D9EF;}.hljs-quote{color:#5C98CD;}.hljs-section{color:#71C05D;}.hljs-literal{color: #97C8F7;}.hljs-selector-tag{color:#FF6540;}.hljs-template-variable{color:#4D913C;}.hljs-function{color:#71C05D;}.hljs-emphasis{font-style:italic;}.hljs-selector-class{color:#4D913C;}.hljs{display:block;color:#F8F8F2;padding:0.5em;}.hljs-class{color:#71C05D;}.hljs-bullet{color:#E6DB74;}.hljs-comment{color:#5C98CD;}.hljs-keyword{color:#FF6540;}.hljs-selector-id{color:#4D913C;}.hljs-number{color: #CA94FF;}.hljs-string{color:#E6DB74;}.hljs-attribute{color:#4D913C;}.hljs-deletion{color:#4D913C;}.hljs-addition{color:#E6DB74;}.hljs-tag{color:#4D913C;}.hljs-regexp{color:#4D913C;}.hljs-name{color:#4D913C;}</style><pre><code class="hljs" style="background:#2B3E50;border-radius:8px"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAXARRAY_SIZE 50</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAXNAME_LEN 20</span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">readnames</span><span class="hljs-params">(<span class="hljs-keyword">char</span> names[][MAXNAME_LEN])</span>
+</span>{
+    <span class="hljs-keyword">int</span> numofnames = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">while</span> (<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%s"</span>, &amp;names[numofnames++][<span class="hljs-number">0</span>]) != EOF){}
+
+    <span class="hljs-keyword">return</span> numofnames - <span class="hljs-number">1</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">printnames</span><span class="hljs-params">(<span class="hljs-keyword">char</span> names[][MAXNAME_LEN], <span class="hljs-keyword">int</span> numofnames)</span>
+</span>{
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"=======\n"</span>);
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; numofnames; ++i)
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%s\n"</span>, &amp;names[i][<span class="hljs-number">0</span>]);
+    }
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"=======\n"</span>);
+}
+
+<span class="hljs-comment">//Recursive version</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">stringSort</span><span class="hljs-params">(<span class="hljs-keyword">char</span> names[][MAXNAME_LEN], <span class="hljs-keyword">int</span> numofnames)</span>
+</span>{
+    <span class="hljs-keyword">int</span> swap_count = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">char</span> tempstr[MAXNAME_LEN];
+
+    <span class="hljs-keyword">if</span> (numofnames == <span class="hljs-number">1</span>)
+        <span class="hljs-keyword">return</span>;
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; numofnames - <span class="hljs-number">1</span>; i = i + <span class="hljs-number">1</span>)
+    {
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strcmp</span>(&amp;names[i][<span class="hljs-number">0</span>], &amp;names[i + <span class="hljs-number">1</span>][<span class="hljs-number">0</span>]) &lt; <span class="hljs-number">0</span>)
+        {
+            <span class="hljs-keyword">continue</span>;
+        }
+        <span class="hljs-keyword">else</span>
+        {
+            <span class="hljs-built_in">strcpy</span>(tempstr, &amp;names[i][<span class="hljs-number">0</span>]);
+            <span class="hljs-built_in">strcpy</span>(&amp;names[i][<span class="hljs-number">0</span>], &amp;names[i + <span class="hljs-number">1</span>][<span class="hljs-number">0</span>]);
+            <span class="hljs-built_in">strcpy</span>(&amp;names[i + <span class="hljs-number">1</span>][<span class="hljs-number">0</span>], tempstr);
+            ++swap_count;
+        }
+    }
+
+    <span class="hljs-keyword">if</span> (swap_count &gt; <span class="hljs-number">0</span>)
+        stringSort(names, numofnames - <span class="hljs-number">1</span>);
+}
+
+<span class="hljs-comment">//Loop version</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">loop_stringSort</span><span class="hljs-params">(<span class="hljs-keyword">char</span> names[][MAXNAME_LEN], <span class="hljs-keyword">int</span> numofnames)</span>
+</span>{
+    <span class="hljs-keyword">int</span> swap_count = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">char</span> tempstr[MAXNAME_LEN];
+
+    <span class="hljs-keyword">while</span> (numofnames &gt; <span class="hljs-number">1</span>)
+    {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; numofnames - <span class="hljs-number">1</span>; i = i + <span class="hljs-number">1</span>)
+        {
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strcmp</span>(&amp;names[i][<span class="hljs-number">0</span>], &amp;names[i + <span class="hljs-number">1</span>][<span class="hljs-number">0</span>]) &lt; <span class="hljs-number">0</span>)
+            {
+                <span class="hljs-keyword">continue</span>;
+            }
+            <span class="hljs-keyword">else</span>
+            {
+                <span class="hljs-built_in">strcpy</span>(tempstr, &amp;names[i][<span class="hljs-number">0</span>]);
+                <span class="hljs-built_in">strcpy</span>(&amp;names[i][<span class="hljs-number">0</span>], &amp;names[i + <span class="hljs-number">1</span>][<span class="hljs-number">0</span>]);
+                <span class="hljs-built_in">strcpy</span>(&amp;names[i + <span class="hljs-number">1</span>][<span class="hljs-number">0</span>], tempstr);
+                ++swap_count;
+            }
+        }
+
+        <span class="hljs-keyword">if</span> (swap_count == <span class="hljs-number">0</span>)
+            <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">else</span>
+        {
+            swap_count = <span class="hljs-number">0</span>;
+            numofnames = numofnames - <span class="hljs-number">1</span>;
+        }
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">int</span> numofnames;
+    <span class="hljs-keyword">char</span> names[MAXARRAY_SIZE][MAXNAME_LEN];
+
+    numofnames = readnames(names);
+
+    stringSort(names, numofnames);
+    printnames(names, numofnames);
+}</code></pre>
