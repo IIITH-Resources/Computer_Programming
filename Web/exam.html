@@ -135,6 +135,73 @@
             </section>
             <!---<p>Don't wander in the woods alone. I have heard the owner is dangerous</p>--->
 
+            <section class="post">
+                <header class="major">
+                    <span class="date">Previous Year Papers</span>
+                    <!--h1>Discrete Structures<br />
+                        Quizzes & Exams Page</h1-->
+                </header>
+
+                <div class="row">
+                    <div class="col-6 col-12-small">
+                        <ul class="actions stacked">
+                            <li><a href="#GPDFViewer" class="button primary fit"
+                                    onclick="Drivepdffn('github.com/VijayrajS/iiitprevpapers/raw/master/Year1/CS/CPRO-C%20Programming/CPRO_end_2016.pdf','nbviewer.org/github/VijayrajS/iiitprevpapers/blob/master/Year1/CS/CPRO-C%20Programming/CPRO_end_2016.pdf')">End
+                                    Sems
+                                    2016</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-12-small">
+                        <ul class="actions stacked">
+                            <li><a href="#GPDFViewer" class="button primary fit"
+                                    onclick="Drivepdffn('github.com/VijayrajS/iiitprevpapers/raw/master/Year1/CS/CPRO-C%20Programming/CPRO_mid1_2017.pdf','nbviewer.org/github/VijayrajS/iiitprevpapers/blob/master/Year1/CS/CPRO-C%20Programming/CPRO_mid1_2017.pdf')">Mid
+                                    Sems 1 2017</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-12-small">
+                        <ul class="actions stacked">
+                            <li><a href="#GPDFViewer" class="button primary fit"
+                                    onclick="Drivepdffn('github.com/VijayrajS/iiitprevpapers/raw/master/Year1/CS/CPRO-C%20Programming/CPRO_mid2_2017.pdf','nbviewer.org/github/VijayrajS/iiitprevpapers/blob/master/Year1/CS/CPRO-C%20Programming/CPRO_mid2_2017.pdf')">Mid
+                                    Sems 2 2017</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-12-small">
+                        <ul class="actions stacked">
+                            <li><a href="#GPDFViewer" class="button primary fit"
+                                    onclick="Drivepdffn('github.com/VijayrajS/iiitprevpapers/raw/master/Year1/CS/CPRO-C%20Programming/CPRO_end_2017.pdf','nbviewer.org/github/VijayrajS/iiitprevpapers/blob/master/Year1/CS/CPRO-C%20Programming/CPRO_end_2017.pdf')">End
+                                    Sems 2017</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-12-small">
+                        <ul class="actions stacked">
+                            <li><a href="#GPDFViewer" class="button primary fit"
+                                    onclick="Drivepdffn('github.com/VijayrajS/iiitprevpapers/raw/master/Year1/CS/CPRO-C%20Programming/CPRO_lab_2017.pdf','nbviewer.org/github/VijayrajS/iiitprevpapers/blob/master/Year1/CS/CPRO-C%20Programming/CPRO_lab_2017.pdf')">End
+                                    Sems Lab 2017</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p>From VijayrajS/iiitprevpapers repo (Link in More Resources Section in <a href="../index.html">Site
+                        Home</a>)</p>
+
+                <div id="GPDFViewer" style="display: none;">
+                    <hr style="border-top: 3px dashed red;">
+                    <p> If you are unable to view this file properly, Please
+                        <a href="./" rel="follow" target="_blank" download id="GPDFViewerDownload">Click here</a> to
+                        open
+                        it externally.
+                    </p>
+                    <iframe
+                        src="https://nbviewer.org/github/VijayrajS/iiitrevpapers/blob/master/Year1/CS/DISC-Discrete%20Structures/DISC_end_2016.pdf"
+                        width='100%' height='800' id="GPDFViewerIFrame">
+                    </iframe>
+                </div>
+            </section>
+
         </div>
         <!-- Footer -->
         <footer id="footer">
@@ -165,9 +232,10 @@
 							</section>-->
             </section>
         </footer>
+    </div>
 
-        <!-- Copyright -->
-        <!--<div id="copyright">
+    <!-- Copyright -->
+    <!--<div id="copyright">
             <ul>
                 <p class="copyright">&copy; <a href="https://github.com/bhavberi/IIITH-Resources/blob/main/LICENSE"
                         target="_blank" rel="follow">Bhav Beri & Contibutors. <img alt="GitHub"
@@ -181,33 +249,53 @@
                  ->
             </ul>
         </div>-->
-        <include src="./footer.html"></include>
+    <include src="./footer.html"></include>
 
 
-        <!-- Scripts -->
-        <script src="./assets/js/jquery.min.js"></script>
-        <script src="./assets/js/jquery.scrollex.min.js"></script>
-        <script src="./assets/js/jquery.scrolly.min.js"></script>
-        <script src="./assets/js/browser.min.js"></script>
-        <script src="./assets/js/breakpoints.min.js"></script>
-        <script src="./assets/js/util.js"></script>
-        <script src="./assets/js/main.js"></script>
-        <script src="https://unpkg.com/htmlincludejs"></script>
-        <!---<include src="./trial.html"></include>--->
 
-        <script>
-            function pdffn(name1, name2) {
-                var x = document.getElementById("PDFViewerObject");
-                var y = document.getElementById('PDFViewerIFrame');
-                x.data = name1;
-                y.contentWindow.history.replaceState('WhatEverNameYouWant', "", name2);
-                document.getElementById("PDFViewerIFrame").src = name2;
-                document.getElementById("PDFViewerDownload").href = name1;
-                if (document.getElementById("PDFViewer").style.display === "none") {
-                    document.getElementById("PDFViewer").style.display = "block";
-                }
+    <!-- Scripts -->
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/jquery.scrollex.min.js"></script>
+    <script src="./assets/js/jquery.scrolly.min.js"></script>
+    <script src="./assets/js/browser.min.js"></script>
+    <script src="./assets/js/breakpoints.min.js"></script>
+    <script src="./assets/js/util.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="https://unpkg.com/htmlincludejs"></script>
+    <!---<include src="./trial.html"></include>--->
+
+    <script>
+        function pdffn(name1, name2) {
+            var x = document.getElementById("PDFViewerObject");
+            var y = document.getElementById('PDFViewerIFrame');
+            x.data = name1;
+            y.contentWindow.history.replaceState('WhatEverNameYouWant', "", name2);
+            document.getElementById("PDFViewerIFrame").src = name2;
+            document.getElementById("PDFViewerDownload").href = name1;
+            if (document.getElementById("PDFViewer").style.display === "none") {
+                document.getElementById("PDFViewer").style.display = "block";
             }
-        </script>
+        }
+    </script>
+    <script>
+        function Drivepdffn(name1, name2) {
+            //var x = document.getElementById("PDFViewerObject");
+            var y = document.getElementById('GPDFViewerIFrame');
+            //x.data = name1;
+            var https = "https://";
+            name1 = https + name1;
+            name2 = https + name2;
+            //name1 = https.concat(name1);
+            //name2 = https.concat(name2);
+            //y.contentWindow.history.replaceState('WhatEverNameYouWant', "", name2);
+            y.src = name2;
+            //document.getElementById("GPDFViewerIFrame").src = name2;
+            document.getElementById("GPDFViewerDownload").href = name1;
+            if (document.getElementById("GPDFViewer").style.display === "none") {
+                document.getElementById("GPDFViewer").style.display = "block";
+            }
+        }
+    </script>
 
 </body>
 
